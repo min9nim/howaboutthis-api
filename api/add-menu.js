@@ -1,10 +1,8 @@
-const allowCors = require('../utils/cors')
-const Menu = require('../models/menu')
+const allowCors = require('../src/utils/cors')
+const Menu = require('../src/models/menu')
 
 const addMenuHandler = async (req, res) => {
-    console.log(typeof req.body)
     await Menu.create(req.body)
-    console.log('done')
     res.json({
         status: 'succeeded',
     })
