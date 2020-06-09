@@ -15,9 +15,7 @@ mongoose.set('useUnifiedTopology', true)
 mongoose.set('useFindAndModify', false)
 mongoose.set('useCreateIndex', true)
 
-const DBURL = 'mongodb://dev:dev123@ds333768.mlab.com:33768/howaboutthis'
-
-mongoose.connect(DBURL, {
+mongoose.connect(process.env.DB_URL, {
   useCreateIndex: true,
   useNewUrlParser: true,
 })
