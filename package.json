@@ -2,5 +2,8 @@
   "name": "howaboutthis",
   "version": "1.0.0",
   "main": "index.js",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "mongoose": "^5.9.18"
+  }
 }
