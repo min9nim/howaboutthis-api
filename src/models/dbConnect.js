@@ -1,5 +1,8 @@
 const mongoose = require('mongoose')
 
+// load .env
+require('dotenv').config()
+
 // 디비설정
 const db = mongoose.connection
 db.on('error', console.error)
