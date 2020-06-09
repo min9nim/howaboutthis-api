@@ -3,14 +3,11 @@ const mongoose = require('./dbConnect')
 const Schema = mongoose.Schema
 const menuSchema = new Schema({
   id: { type: String, unique: true, required: true },
-  url: String,
   title: String,
+  category: String,
+  url: String,
   desc: String,
   image: String,
-  author: {
-    name: String,
-    id: String,
-  },
   createdAt: Number,
   updatedAt: Number,
 })
