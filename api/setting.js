@@ -8,7 +8,7 @@ const getMenusHandler = async (req, res) => {
     // console.log(docs)
     res.json({
         status: 'succeeded',
-        result: docs,
+        result: {SLACK_CHANNEL: process.env.SLACK_CHANNEL},
     })
 }
 

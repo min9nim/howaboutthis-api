@@ -1,3 +1,5 @@
+require('../src/initialize')
+
 const allowCors = require('../src/utils/cors')
 const Menu = require('../src/models/menu')
 

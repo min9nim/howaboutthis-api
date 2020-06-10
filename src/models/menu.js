@@ -1,8 +1,6 @@
-const mongoose = require('./dbConnect')
+const mongoose = require('mongoose')
 
-
-const Schema = mongoose.Schema
-const menuSchema = new Schema({
+const menuSchema = new mongoose.Schema({
   url: String,
   title: String,
   desc: String,
