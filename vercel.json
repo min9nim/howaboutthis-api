@@ -1,5 +1,6 @@
 {
   "env": {
-    "SLACK_URL": "@HOWABOUTTHIS_SLACK_URL"
+    "SLACK_URL": "SLACK_URL",
+    "DB_URL": "DB_URL"
   }
 }
