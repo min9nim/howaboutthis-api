@@ -1,6 +1,0 @@
-{
-  "env": {
-    "SLACK_URL": "SLACK_URL",
-    "DB_URL": "DB_URL"
-  }
-}
