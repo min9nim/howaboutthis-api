@@ -3,8 +3,8 @@ const mongoose = require('mongoose')
 // load .env
 require('dotenv').config()
 
-const {SLACK_URL, DB_URL} = process.env
-console.log({SLACK_URL, DB_URL})
+const {SLACK_URL, SLACK_CHANNEL, DB_URL} = process.env
+console.log({SLACK_URL, SLACK_CHANNEL, DB_URL})
 
 // 디비설정
 const db = mongoose.connection
