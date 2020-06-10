@@ -3,7 +3,7 @@ const Menu = require('../src/models/menu')
 
 const getMenusHandler = async (req, res) => {
     const docs = await Menu.find()
-    console.log(docs)
+    // console.log(docs)
     res.json({
         status: 'succeeded',
         result: docs,
