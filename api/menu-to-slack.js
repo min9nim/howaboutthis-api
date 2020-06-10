@@ -4,7 +4,6 @@ const axios = require('axios').default
 
 const menuToSlack = async (req, res) => {
     let selected
-    console.log('req.query', req.query)
     if(req.query._id){
         selected = await Menu.findOne({_id: req.query._id}).lean()
     }else{
@@ -12,11 +11,22 @@ const menuToSlack = async (req, res) => {
         const randomIndex = Math.floor(Math.random()*docs.length)
         selected = docs[randomIndex]
     }
-    const result = await axios.post(process.env.SLACK_URL, {
-        text: selected.title + '\n' + selected.url,
-    })
-    console.log('result', result.data)
-    console.log('selected', selected)
+
+    let result
+    try{
+        result = await axios.post(process.env.SLACK_URL, {
+            text: selected.title + '\n' + selected.url,
+        })
+        console.log('result', result.data)
+    }catch (e) {
+        console.error(e)
+        res.json({
+            status: 'failed',
+            result: e.message,
+        })
+        return
+    }
+
     res.json({
         status: 'succeeded',
         result: result.data,
