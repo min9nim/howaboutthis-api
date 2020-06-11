@@ -6,12 +6,12 @@ const axios = require('axios').default
 
 const menuToSlack = async (req, res) => {
 
-    const channel = req.query.channel || process.env.SLACK_CHANNEL
-    console.log('req.query.channel', req.query.channel)
+    const channel = req.body.channel || process.env.SLACK_CHANNEL
+    console.log('req.body.channel', req.body.channel)
     console.log('channel', channel)
     let selected
-    if(req.query._id){
-        selected = await Menu.findOne({_id: req.query._id}).lean()
+    if(req.body._id){
+        selected = await Menu.findOne({_id: req.body._id}).lean()
     }else{
         const docs = await Menu.find().lean()
         const randomIndex = Math.floor(Math.random()*docs.length)
