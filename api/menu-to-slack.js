@@ -17,7 +17,7 @@ const menuToSlack = async (req, res) => {
     let result
     try{
         result = await axios.post(process.env.SLACK_URL, {
-            text: selected.title + '\n' + selected.url,
+            text: selected.title + '\n👉 ' + selected.url  + '\n🍚 ' + process.env.WEB_URL,
             channel: process.env.SLACK_CHANNEL,
         })
         console.log('result', result.data)
