@@ -5,7 +5,6 @@ const Menu = require('../src/models/menu')
 const axios = require('axios').default
 
 const menuToSlack = async (req, res) => {
-
     const channel = req.body.channel || process.env.SLACK_CHANNEL
     console.log('req.body.channel', req.body.channel)
     console.log('channel', channel)
