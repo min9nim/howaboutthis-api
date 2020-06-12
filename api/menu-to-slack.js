@@ -5,9 +5,7 @@ const Menu = require('../src/models/menu')
 const axios = require('axios').default
 
 const menuToSlack = async (req, res) => {
-  const channel = req.body.channel || process.env.SLACK_CHANNEL
-  console.log('req.body.channel', req.body.channel)
-  console.log('channel', channel)
+
   let selected
   if (req.body._id) {
     selected = await Menu.findOne({ _id: req.body._id }).lean()
@@ -19,6 +17,10 @@ const menuToSlack = async (req, res) => {
 
   let result
   try {
+    const channel = req.body.channel
+    if(!channel){
+      throw Error('channel is required')
+    }
     result = await axios.post(process.env.SLACK_URL, {
       text: selected.title + '\n👉 ' + selected.url + '\n📝 ' + process.env.WEB_URL,
       channel
