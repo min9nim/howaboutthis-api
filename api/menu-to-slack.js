@@ -5,7 +5,6 @@ const Menu = require('../src/models/menu')
 const axios = require('axios').default
 
 const menuToSlack = async (req, res) => {
-
   let selected
   if (req.body._id) {
     selected = await Menu.findOne({ _id: req.body._id }).lean()
