@@ -1,6 +1,21 @@
-## howaboutthis slack setting
+### vercel cli install
+```
+npm i -g vercel
+```
 
-https://madupteam.slack.com/services/B0154P8QTJ6
+<br>
+
+### local vercel initialize
+```
+vercel
+```
+
+<br>
+
+### 로컬 개발환경 시작
+```
+yarn start
+```
 
 <br>
 
@@ -8,3 +23,12 @@ https://madupteam.slack.com/services/B0154P8QTJ6
 ```
 vercel env pull
 ```
+
+<br>
+
+### slack incoming webhook setting
+
+https://madupteam.slack.com/services/B0154P8QTJ6
+
+<br>
+
