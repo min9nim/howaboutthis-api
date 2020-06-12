@@ -3,8 +3,8 @@ const dotenv = require('dotenv')
 
 function loadEnv () {
   dotenv.config()
-  const { SLACK_URL, SLACK_CHANNEL, DB_URL } = process.env
-  console.log({ SLACK_URL, SLACK_CHANNEL, DB_URL })
+  const { SLACK_URL, DB_URL } = process.env
+  console.log({ SLACK_URL, DB_URL })
 }
 
 function initDB (dburl) {
