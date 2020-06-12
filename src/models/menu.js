@@ -14,7 +14,7 @@ const menuSchema = new mongoose.Schema({
     type: Date,
     default: Date.now,
     required: 'Must have start date - default value is the created date'
-  },
+  }
 })
 
 module.exports = mongoose.model('Menu', menuSchema, 'menus')

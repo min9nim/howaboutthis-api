@@ -9,6 +9,11 @@
     "mongoose": "^5.9.18"
   },
   "scripts": {
-    "start": "vercel dev"
+    "start": "vercel dev",
+    "standard": "standard",
+    "standard:fix": "standard --fix"
+  },
+  "devDependencies": {
+    "standard": "^14.3.4"
   }
 }
