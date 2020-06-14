@@ -5,6 +5,7 @@ const Menu = require('../src/models/menu')
 const axios = require('axios').default
 
 const menuToSlack = async (req, res) => {
+
   try {
     if (!req.body) {
       throw Error('payload is not found')
@@ -18,30 +19,26 @@ const menuToSlack = async (req, res) => {
       selected = docs[randomIndex]
     }
 
-    let result
-
     const channel = req.body.channel
     if (!channel) {
       throw Error('channel is required')
     }
-    result = await axios.post(process.env.SLACK_URL, {
+    const {data} = await axios.post(process.env.SLACK_URL, {
       text: selected.title + '\n👉 ' + selected.url + '\n📝 ' + process.env.WEB_URL,
       channel
     })
-    console.log('result', result.data)
+    console.log('result', data)
+    res.json({
+      status: 'succeeded',
+      result: data
+    })
   } catch (e) {
     console.error(e)
     res.json({
       status: 'failed',
       result: e.message
     })
-    return
   }
-
-  res.json({
-    status: 'succeeded',
-    result: result.data
-  })
 }
 
 module.exports = allowCors(menuToSlack)
