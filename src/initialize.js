@@ -3,11 +3,11 @@ const dotenv = require('dotenv')
 
 function loadEnv () {
   dotenv.config()
-  const { SLACK_URL, DB_URL } = process.env
-  console.log({ SLACK_URL, DB_URL })
+  const { SLACK_URL, DB_URL, SLACK_CHANNEL, WEB_URL } = process.env
+  console.log({ SLACK_URL, DB_URL, SLACK_CHANNEL, WEB_URL })
 }
 
-function initDB (dburl) {
+function initDB (dburl = process.env.DB_URL) {
   const db = mongoose.connection
   db.on('error', console.error)
   db.once('open', function () {
@@ -22,5 +22,6 @@ function initDB (dburl) {
   })
 }
 
-loadEnv()
-initDB(process.env.DB_URL)
+module.exports = {
+  loadEnv, initDB,
+}
