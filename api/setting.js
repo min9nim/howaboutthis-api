@@ -1,4 +1,5 @@
-require('../src/initialize')
+const {loadEnv} = require('../src/initialize')
+loadEnv()
 
 const allowCors = require('../src/utils/cors')
 

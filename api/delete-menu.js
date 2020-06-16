@@ -1,4 +1,7 @@
-require('../src/initialize')
+const {loadEnv, initDB} = require('../src/initialize')
+loadEnv()
+initDB()
+
 
 const allowCors = require('../src/utils/cors')
 const Menu = require('../src/models/menu')
