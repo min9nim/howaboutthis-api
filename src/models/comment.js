@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 
 const schema = new mongoose.Schema({
   author: String,
+  menuId: mongoose.Schema.Types.ObjectId,
   content: String,
   createdAt: {
     type: Date,
