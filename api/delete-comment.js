@@ -5,11 +5,12 @@ initDB()
 const allowCors = require('../src/utils/cors')
 const Comment = require('../src/models/comment')
 
-const addMenuHandler = async (req, res) => {
-  await Comment.deleteOne({ _id: req.body._id })
+const handler = async (req, res) => {
+  const result = await Comment.deleteOne({ _id: req.body._id }).lean()
+  console.log({deletedCount: result.deletedCount})
   res.json({
-    status: 'succeeded'
+    status: result.deletedCount > 0 ? 'succeeded' : 'failed'
   })
 }
 
-module.exports = allowCors(addMenuHandler)
+module.exports = allowCors(handler)

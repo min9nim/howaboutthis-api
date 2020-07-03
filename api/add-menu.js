@@ -5,7 +5,7 @@ initDB()
 const allowCors = require('../src/utils/cors')
 const Menu = require('../src/models/menu')
 
-const addMenuHandler = async (req, res) => {
+const handler = async (req, res) => {
   const doc = await Menu.create(req.body)
   res.json({
     status: 'succeeded',
@@ -13,4 +13,4 @@ const addMenuHandler = async (req, res) => {
   })
 }
 
-module.exports = allowCors(addMenuHandler)
+module.exports = allowCors(handler)
