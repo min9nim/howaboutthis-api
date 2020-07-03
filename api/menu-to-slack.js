@@ -6,7 +6,7 @@ const allowCors = require('../src/utils/cors')
 const Menu = require('../src/models/menu')
 const axios = require('axios').default
 
-const menuToSlack = async (req, res) => {
+const handler = async (req, res) => {
 
   try {
     if (!req.body) {
@@ -43,4 +43,4 @@ const menuToSlack = async (req, res) => {
   }
 }
 
-module.exports = allowCors(menuToSlack)
+module.exports = allowCors(handler)
