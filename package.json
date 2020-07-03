@@ -11,10 +11,9 @@
   },
   "scripts": {
     "start": "vercel dev",
-    "standard": "standard",
-    "standard:fix": "standard --fix"
+    "reformat": "prettier --write"
   },
   "devDependencies": {
-    "standard": "^14.3.4"
+    "prettier": "^2.0.5"
   }
 }
