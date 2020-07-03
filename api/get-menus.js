@@ -5,7 +5,7 @@ initDB()
 const allowCors = require('../src/utils/cors')
 const {propEq} = require('ramda')
 const Menu = require('../src/models/menu')
-const Comment = require('../src/models/Comment')
+const Comment = require('../src/models/comment')
 
 const getMenusHandler = async (req, res) => {
   const comments = await Comment.find().lean()
