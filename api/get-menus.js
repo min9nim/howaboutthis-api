@@ -1,9 +1,9 @@
-const {loadEnv, initDB} = require('../src/initialize')
+const { loadEnv, initDB } = require('../src/initialize')
 loadEnv()
 initDB()
 
 const allowCors = require('../src/utils/cors')
-const {propEq} = require('ramda')
+const { propEq } = require('ramda')
 const Menu = require('../src/models/menu')
 const Comment = require('../src/models/comment')
 
@@ -11,7 +11,10 @@ const getMenusHandler = async (req, res) => {
   // const comments = await Comment.find().lean()
   // const docs = await Menu.find().sort({createdAt: -1}).lean()
 
-  const [comments, docs] = await Promise.all([Comment.find().lean(), Menu.find().sort({createdAt: -1}).lean()])
+  const [comments, docs] = await Promise.all([
+    Comment.find().lean(),
+    Menu.find().sort({ createdAt: -1 }).lean(),
+  ])
   const commentsAdded = docs.map(doc => {
     doc.comments = comments.filter(propEq('menuId', doc._id))
     return doc
@@ -20,7 +23,7 @@ const getMenusHandler = async (req, res) => {
   // console.log(docs)
   res.json({
     status: 'succeeded',
-    result: commentsAdded
+    result: commentsAdded,
   })
 }
 
